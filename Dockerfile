@@ -16,8 +16,5 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy built app to Nginx static dir
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Optional: Custom Nginx config (for SPA routing)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
